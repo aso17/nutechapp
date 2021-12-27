@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+nav {
+  background-color: rgb(52, 38, 45);
+  display: flex;
+  color: rgb(227, 212, 221);
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+.logo {
+  font-family: cursive;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: yellow;
+}
+
+.container {
+  border: 1px solid;
+  background-color: rgb(227, 212, 221);
+  width: 80%;
+  margin: 10px auto;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-around;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(227, 212, 221);
+  font-family: "Montserrat", sans-serif;
+}
+nav ul li a:hover {
+  color: cornsilk;
+}
+
+.toggle-menu {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+.toggle-menu input {
+  position: absolute;
+  opacity: 0;
+  width: 50px;
+  height: 28px;
+  left: -7px;
+  cursor: pointer;
+  z-index: 3;
+}
+/* animation burger */
+.toggle-menu span:nth-child(2) {
+  transform-origin: 0 0;
+  transition: all 0.5s;
+}
+.toggle-menu input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-2px, -2px);
+  background-color: white;
+}
+.toggle-menu span:nth-child(4) {
+  transition: all 0.5s;
+  transform-origin: 0 100%;
+}
+.toggle-menu input:checked ~ span:nth-child(4) {
+  background-color: white;
+  transform: rotate(-45deg) translate(0px, 0px);
+}
+.toggle-menu input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+.toggle-menu span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: rgb(227, 212, 221);
+  border-radius: 3px;
+}
+
+/* layar tbalet */
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+}
+/* ukuran mobile */
+@media screen and (max-width: 576px) {
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    flex-direction: column;
+    background-color: black;
+    justify-content: space-evenly;
+    height: 100vh;
+    align-items: center;
+    z-index: -1;
+    background-color: rgb(38, 28, 34);
+    transform: translateX(100%);
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  .toggle-menu {
+    display: flex;
+  }
+  nav ul.slide {
+    transform: translateX(0);
+    transition: all 0.5s;
+    opacity: 1;
+  }
+}
